@@ -2,7 +2,8 @@ import { useSelector } from "react-redux";
 import "./App.scss";
 import { WorkspacesSidebar } from "./components/workspacesSidebar";
 import { RootState } from "./store/store";
-import { Task } from "./components/task";
+import { NewList } from "./components/newList";
+import { TaskGroup } from "./components/taskGroup";
 
 export const App = () => {
   const groups = useSelector((state: RootState) => {
@@ -11,19 +12,15 @@ export const App = () => {
   return (
     <div className="container">
       <WorkspacesSidebar />
-      <div>
+      <div className="workspace-container">
         {groups.map((group) => {
           return (
-            <p key={group.id}>
-              {group.title}
-              <ul>
-                {group.taskIds.map((taskId) => {
-                  return <Task id={taskId} key={taskId} />;
-                })}
-              </ul>
-            </p>
+            <div className="tasks-container" key={group.id}>
+              <TaskGroup group={group} />
+            </div>
           );
         })}
+        <NewList />
       </div>
     </div>
   );

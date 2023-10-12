@@ -1,0 +1,26 @@
+.new-list-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.new-list-button-text {
+  color: var(--midnight-blue-500, #88819f);
+  font-family: Inter;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+}
+.new-list-button {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
+  padding: 0;
+  gap: 6px;
+}
