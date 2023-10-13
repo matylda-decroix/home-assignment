@@ -30,6 +30,75 @@
         gap: 8px;
     }
 }
+.chosen-workspace-div {
+    height: 64px;
+    border-radius: 8px;
+    background: #f4f7fe;
+}
+.not-chosen-workspace-div {
+    height: 64px;
+    border-radius: 8px;
+    background: #fff;
+}
+.chosen-workspace-div input {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+.not-chosen-workspace-div input {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+.chosen-workspace-label {
+    color: #001c39;
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18px;
+    display: flex;
+    height: 32px;
+    margin-top: 16px;
+    margin-left: 16px;
+}
+.not-chosen-workspace-label {
+    color: #88819f;
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18px;
+    display: flex;
+    height: 32px;
+    margin-top: 16px;
+    margin-left: 16px;
+}
+.workspace-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: #b3c4d6;
+    text-align: center;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18px;
+    padding-top: 7px;
+}
+.workspace-span {
+    margin-left: 12px;
+    padding-top: 7px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.workspace-buttons-container {
+    display: none;
+}
+.workspace-picker:hover .workspace-buttons-container {
+    display: initial;
+}
 .new-worspace-button-text {
     color: #001c39;
     font-family: Inter;

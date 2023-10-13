@@ -13,11 +13,12 @@ export type Group = {
 export type Workspace = {
   id: number;
   title: string;
+  groupIds: Array<number>;
 };
 
 export interface BoardInterface {
   groups: Group[];
   tasks: Record<string, Task>;
   workspaces: Workspace[];
-  chosenWorkplace: number;
+  chosenWorkspace: number;
 }

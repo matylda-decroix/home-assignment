@@ -2,38 +2,72 @@ import "./WorkspacesSidebar.scss";
 import { UserProfile } from "../userProfile";
 import { WorkspaceSettings } from "../workspaceSettings";
 import { Plus } from "../../assets/icons";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 import { Search } from "../../assets/icons/Search";
 import { Boards } from "../../assets/icons/Boards";
 import { Dashboard } from "../../assets/icons/Dashboard";
 import { Profile } from "../../assets/icons/Profile";
+import { chooseWorkspace } from "../../store/slices";
+import { HoverButtons } from "../hoverButtons";
 
 export const WorkspacesSidebar = () => {
   const workspaces = useSelector((state: RootState) => {
     return state.board.workspaces;
   });
-  const chosenWorkplace = useSelector((state: RootState) => {
-    return state.board.chosenWorkplace;
+  const chosenWorkspace = useSelector((state: RootState) => {
+    return state.board.chosenWorkspace;
   });
+  const dispatch = useDispatch();
+  const handleChange = (id: number) => {
+    dispatch(chooseWorkspace({ id }));
+  };
+  const handleEdit = () => {
+    console.log("edit");
+  };
+  const handleDelete = () => {
+    console.log("delete");
+  };
   return (
     <div className="workspaces">
       <div className="workspaces-header">
         <div className="workspaces-header-container">
           {workspaces.map((workspace) => {
+            const isThisWorkspaceChosen = workspace.id === chosenWorkspace;
             return (
-              <div className="workspaces-container" key={workspace.id}>
-                <input
-                  className="workspace-checkbox"
-                  type="checkbox"
-                  checked={workspace.id === chosenWorkplace}
-                />
+              <div
+                className={
+                  isThisWorkspaceChosen
+                    ? "chosen-workspace-div workspace-picker"
+                    : "not-chosen-workspace-div workspace-picker"
+                }
+                key={workspace.id}
+                onClick={() => {
+                  handleChange(workspace.id);
+                }}
+              >
+                <div
+                  className={
+                    isThisWorkspaceChosen
+                      ? "chosen-workspace-label"
+                      : "not-chosen-workspace-label"
+                  }
+                >
+                  <div className="workspace-icon">{workspace.title[0]}</div>
+                  <span className="workspace-span">{workspace.title}</span>
+                  <div className="workspace-buttons-container">
+                    <HoverButtons
+                      onClickDelete={handleDelete}
+                      onClickEdit={handleEdit}
+                    />
+                  </div>
+                </div>
               </div>
             );
           })}
         </div>
         <button className="new-worspace-button">
-          <Plus />
+          <Plus fill="#001c39" />
           <p className="new-worspace-button-text">Create workspace</p>
         </button>
       </div>

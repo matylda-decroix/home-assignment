@@ -1,4 +1,4 @@
-export const Plus = () => (
+export const Plus = ({ fill = "#88819F" }: { fill?: string }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="17"
@@ -10,7 +10,7 @@ export const Plus = () => (
       <path
         id="Vector"
         d="M7.83334 7.33325V3.33325H9.16668V7.33325H13.1667V8.66659H9.16668V12.6666H7.83334V8.66659H3.83334V7.33325H7.83334Z"
-        fill="#88819F"
+        fill={fill}
       />
     </g>
   </svg>
