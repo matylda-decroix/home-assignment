@@ -171,15 +171,42 @@ export const boardSlice = createSlice({
       );
       targetWorkspace.groupIds.push(action.payload.groupId);
     },
-    reorderTaskGroup: (
+    moveTaskGroupWithinWorkspace: (
       state,
       action: PayloadAction<{
         groupId: number;
-        sourceWorkspaceId: number;
-        targetWorkspaceId: number;
+        index: number;
       }>
     ) => {
-      //splice
+      const workspace = state.workspaces.find(
+        (workspace) => workspace.id === state.chosenWorkspace
+      );
+      if (!workspace) return;
+      const currentPosition = workspace.groupIds.indexOf(
+        action.payload.groupId
+      );
+      workspace.groupIds.splice(currentPosition, 1);
+      workspace.groupIds.splice(
+        action.payload.index,
+        0,
+        action.payload.groupId
+      );
+    },
+    moveTaskWithinGroup: (
+      state,
+      action: PayloadAction<{
+        groupId: number;
+        taskId: number;
+        index: number;
+      }>
+    ) => {
+      const group = state.groups.find(
+        (group) => group.id === action.payload.groupId
+      );
+      if (!group) return;
+      const currentPosition = group.taskIds.indexOf(action.payload.taskId);
+      group.taskIds.splice(currentPosition, 1);
+      group.taskIds.splice(action.payload.index, 0, action.payload.taskId);
     },
   },
 });
@@ -197,4 +224,6 @@ export const {
   editTask,
   deleteTask,
   moveGroupBetweenWorkspaces,
+  moveTaskGroupWithinWorkspace,
+  moveTaskWithinGroup,
 } = boardSlice.actions;

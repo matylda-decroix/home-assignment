@@ -6,9 +6,9 @@ import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { addTask } from "../../store/slices";
 import { TaskForm } from "../taskForm";
-import { TaskGroupHeader } from "./taskGroupHeader";
+import { TaskGroupHeader } from "./TaskGroupHeader";
 import { useDraggable } from "@dnd-kit/core";
-import { useSortable } from "@dnd-kit/sortable";
+import { SortableContext, useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 
 export const TaskGroup = ({ group }: { group: Group }) => {
@@ -18,7 +18,7 @@ export const TaskGroup = ({ group }: { group: Group }) => {
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({
       id: `group-${group.id}`,
-      data: { group },
+      data: { item: { id: group.id, title: group.title } },
     });
   // const style = transform
   //   ? ({
@@ -29,7 +29,7 @@ export const TaskGroup = ({ group }: { group: Group }) => {
   //   : undefined;
 
   const style = {
-    transform: CSS.Transform.toString(transform),
+    //transform: CSS.Transform.toString(transform),
     transition,
   };
 
@@ -51,11 +51,15 @@ export const TaskGroup = ({ group }: { group: Group }) => {
       {...attributes}
     >
       <TaskGroupHeader group={group} />
-      <ul className="task-group-list">
-        {group.taskIds.map((taskId) => {
-          return <Task id={taskId} key={taskId} groupId={group.id} />;
-        })}
-      </ul>
+      <SortableContext
+        items={group.taskIds?.map((taskId) => `task-${taskId}`) ?? []}
+      >
+        <ul className="task-group-list">
+          {group.taskIds.map((taskId) => {
+            return <Task id={taskId} key={taskId} groupId={group.id} />;
+          })}
+        </ul>
+      </SortableContext>
       <div className="task-group-form-container">
         {isFormOpen && (
           <TaskForm

@@ -9,7 +9,10 @@ export const dndSlice = createSlice({
   name: "dnd",
   initialState,
   reducers: {
-    dragStart: (state, action: PayloadAction<{ id: number; type: string }>) => {
+    dragStart: (
+      state,
+      action: PayloadAction<{ id: number; title: string }>
+    ) => {
       state.element = action.payload;
     },
     dragEnd: (state) => {

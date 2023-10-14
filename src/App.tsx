@@ -37,10 +37,10 @@ export const App = () => {
   return (
     <div className="container">
       <WorkspacesSidebar />
-      <div className="workspace-container">
-        <SortableContext
-          items={groups?.map((group) => `group-${group.id}`) ?? []}
-        >
+      <SortableContext
+        items={groups?.map((group) => `group-${group.id}`) ?? []}
+      >
+        <div className="workspace-container">
           {groups?.map((group) => {
             return (
               <div className="tasks-container" key={group.id}>
@@ -48,9 +48,10 @@ export const App = () => {
               </div>
             );
           }) ?? []}
-        </SortableContext>
-        <NewList />
-      </div>
+
+          <NewList />
+        </div>
+      </SortableContext>
     </div>
   );
 };

@@ -25,7 +25,7 @@ export const WorkspacesListItem = ({
     data: workspace,
   });
   const style = {
-    backgroundColor: isOver ? "green" : undefined,
+    color: isOver ? "#007DFC" : undefined,
   };
   const handleChange = (id: number) => {
     dispatch(chooseWorkspace({ id }));

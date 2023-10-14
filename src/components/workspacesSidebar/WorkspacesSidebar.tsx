@@ -45,6 +45,7 @@ export const WorkspacesSidebar = () => {
               <WorkspacesListItem
                 isThisWorkspaceChosen={isThisWorkspaceChosen}
                 workspace={workspace}
+                key={workspace.id}
               />
             );
           })}

@@ -32,5 +32,5 @@ export interface BoardInterface {
 }
 
 export interface DndInterface {
-  element: null | { type: string; id: number };
+  element: null | { title: string; id: number };
 }
