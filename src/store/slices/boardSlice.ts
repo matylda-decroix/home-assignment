@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { BoardInterface, Group } from "../types";
+import { BoardInterface } from "../types";
 
 const initialState: BoardInterface = {
   groups: [
@@ -151,6 +151,36 @@ export const boardSlice = createSlice({
         ),
       };
     },
+    moveGroupBetweenWorkspaces: (
+      state,
+      action: PayloadAction<{
+        groupId: number;
+        sourceWorkspaceId: number;
+        targetWorkspaceId: number;
+      }>
+    ) => {
+      const sourceWorkspace = state.workspaces.find(
+        (workspace) => workspace.id === action.payload.sourceWorkspaceId
+      );
+      const targetWorkspace = state.workspaces.find(
+        (workspace) => workspace.id === action.payload.targetWorkspaceId
+      );
+      if (!sourceWorkspace || !targetWorkspace) return;
+      sourceWorkspace.groupIds = sourceWorkspace.groupIds.filter(
+        (id) => id !== action.payload.groupId
+      );
+      targetWorkspace.groupIds.push(action.payload.groupId);
+    },
+    reorderTaskGroup: (
+      state,
+      action: PayloadAction<{
+        groupId: number;
+        sourceWorkspaceId: number;
+        targetWorkspaceId: number;
+      }>
+    ) => {
+      //splice
+    },
   },
 });
 
@@ -166,4 +196,5 @@ export const {
   addTask,
   editTask,
   deleteTask,
+  moveGroupBetweenWorkspaces,
 } = boardSlice.actions;

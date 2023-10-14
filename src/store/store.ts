@@ -10,12 +10,14 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
+import { dndSlice } from "./slices/dndSlice";
 const persistConfig = {
   key: "root",
   storage: storage,
 };
 export const rootReducers = combineReducers({
   board: boardSlice.reducer,
+  dnd: dndSlice.reducer,
 });
 const persistedReducer = persistReducer(persistConfig, rootReducers);
 

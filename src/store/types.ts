@@ -30,3 +30,7 @@ export interface BoardInterface {
   workspaces: Workspace[];
   chosenWorkspace: number;
 }
+
+export interface DndInterface {
+  element: null | { type: string; id: number };
+}

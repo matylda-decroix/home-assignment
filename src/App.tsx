@@ -5,6 +5,7 @@ import { RootState } from "./store/store";
 import { NewList } from "./components/newList";
 import { TaskGroup } from "./components/taskGroup";
 import { createSelector } from "@reduxjs/toolkit";
+import { SortableContext } from "@dnd-kit/sortable";
 
 function isDefined<T>(val: T | undefined | null): val is T {
   return val !== undefined && val !== null;
@@ -37,13 +38,17 @@ export const App = () => {
     <div className="container">
       <WorkspacesSidebar />
       <div className="workspace-container">
-        {groups?.map((group) => {
-          return (
-            <div className="tasks-container" key={group.id}>
-              <TaskGroup group={group} />
-            </div>
-          );
-        })}
+        <SortableContext
+          items={groups?.map((group) => `group-${group.id}`) ?? []}
+        >
+          {groups?.map((group) => {
+            return (
+              <div className="tasks-container" key={group.id}>
+                <TaskGroup group={group} />
+              </div>
+            );
+          }) ?? []}
+        </SortableContext>
         <NewList />
       </div>
     </div>
