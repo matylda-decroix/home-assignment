@@ -2,6 +2,13 @@ export type Task = {
   id: number;
   title: string;
   isDone: boolean;
+  subtaskIds?: Array<number>;
+};
+
+export type Subtask = {
+  id: number;
+  title: string;
+  isDone: boolean;
 };
 
 export type Group = {
@@ -19,6 +26,7 @@ export type Workspace = {
 export interface BoardInterface {
   groups: Group[];
   tasks: Record<string, Task>;
+  subtasks: Record<string, Subtask>;
   workspaces: Workspace[];
   chosenWorkspace: number;
 }

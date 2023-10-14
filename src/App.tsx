@@ -32,6 +32,7 @@ const selectWorkspaceGroups = createSelector(
 
 export const App = () => {
   const groups = useSelector(selectWorkspaceGroups);
+
   return (
     <div className="container">
       <WorkspacesSidebar />
