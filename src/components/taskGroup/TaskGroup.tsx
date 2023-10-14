@@ -2,52 +2,28 @@ import "./TaskGroup.scss";
 import { Group } from "../../store/types";
 import { Task } from "../task";
 import { Plus } from "../../assets/icons";
-import { HoverButtons } from "../hoverButtons";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../store/store";
+import { useDispatch } from "react-redux";
 import { useState } from "react";
-import { addTask, deleteTaskGroup, editTask } from "../../store/slices";
+import { addTask } from "../../store/slices";
 import { TaskForm } from "../taskForm";
+import { TaskGroupHeader } from "./taskGroupHeader";
 
 export const TaskGroup = ({ group }: { group: Group }) => {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const dispatch = useDispatch();
-
-  const completionNumber = useSelector((state: RootState) => {
-    const tasks = state.board.tasks;
-    return group.taskIds.map((id) => tasks[id]).filter((task) => task.isDone)
-      .length;
-  });
 
   const handleAdd = (formInput: string) => {
     setIsFormOpen(false);
     dispatch(addTask({ parentId: group.id, title: formInput }));
   };
 
-  const deleteGroup = (id: number) => {
-    dispatch(deleteTaskGroup({ id: id }));
-  };
-
   const showForm = () => {
     setIsFormOpen(true);
   };
-  const editGroup = (id: number, title: string) => {
-    setIsFormOpen(true);
-  };
+
   return (
     <div className="task-group-container">
-      <div className="task-group-header">
-        <p className="task-group-title">{group.title}</p>
-        <p className="task-group-counter">
-          {completionNumber}/{group.taskIds.length}
-        </p>
-        <div className="task-group-buttons-container">
-          <HoverButtons
-            onClickDelete={() => deleteGroup(group.id)}
-            onClickEdit={() => editGroup(group.id, group.title)}
-          />
-        </div>
-      </div>
+      <TaskGroupHeader group={group} />
       <ul className="task-group-list">
         {group.taskIds.map((taskId) => {
           return <Task id={taskId} key={taskId} groupId={group.id} />;
