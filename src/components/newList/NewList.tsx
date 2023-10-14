@@ -11,6 +11,7 @@ export const NewList = () => {
 
   const handleAdd = (title: string) => {
     dispatch(addTaskGroup({ title }));
+    setIsFormOpen(false);
   };
   const onCloseClick = () => {
     setIsFormOpen(false);
