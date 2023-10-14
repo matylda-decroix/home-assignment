@@ -7,29 +7,17 @@ import { useState } from "react";
 import { addTask } from "../../store/slices";
 import { TaskForm } from "../taskForm";
 import { TaskGroupHeader } from "./TaskGroupHeader";
-import { useDraggable } from "@dnd-kit/core";
 import { SortableContext, useSortable } from "@dnd-kit/sortable";
-import { CSS } from "@dnd-kit/utilities";
 
 export const TaskGroup = ({ group }: { group: Group }) => {
-  //const  = useSortable();
   const [isFormOpen, setIsFormOpen] = useState(false);
   const dispatch = useDispatch();
-  const { attributes, listeners, setNodeRef, transform, transition } =
-    useSortable({
-      id: `group-${group.id}`,
-      data: { item: { id: group.id, title: group.title } },
-    });
-  // const style = transform
-  //   ? ({
-  //       // transform: `translate3d(${transform.x}px, ${transform.y}px, 100px)`,
-  //       // position: "absolute",
-  //       opacity: 0.2,
-  //     } as React.CSSProperties)
-  //   : undefined;
+  const { attributes, listeners, setNodeRef, transition } = useSortable({
+    id: `group-${group.id}`,
+    data: { item: { id: group.id, title: group.title } },
+  });
 
   const style = {
-    //transform: CSS.Transform.toString(transform),
     transition,
   };
 

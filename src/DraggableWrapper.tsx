@@ -12,6 +12,7 @@ import {
   moveGroupBetweenWorkspaces,
   moveTaskGroupWithinWorkspace,
   moveTaskWithinGroup,
+  moveWorkspaceWithinWorkspaces,
 } from "./store/slices";
 import { RootState } from "./store/store";
 
@@ -34,7 +35,10 @@ export const DraggableWrapper = ({ children }: PropsWithChildren) => {
   function handleDragEnd(event: any) {
     console.log(event);
     dispatch(dragEnd());
-    if (event.over?.id.startsWith("workspace")) {
+    if (
+      event.over?.id.startsWith("workspace") &&
+      !event.over?.data.current.sortable
+    ) {
       dispatch(
         moveGroupBetweenWorkspaces({
           groupId: event.active.data.current.item.id,
@@ -57,6 +61,14 @@ export const DraggableWrapper = ({ children }: PropsWithChildren) => {
             moveTaskWithinGroup({
               groupId: event.active.data.current.group.id,
               taskId: event.active.data.current.item.id,
+              index: event.over.data.current.sortable.index,
+            })
+          );
+        }
+        if (event.active.id.startsWith("workspace")) {
+          dispatch(
+            moveWorkspaceWithinWorkspaces({
+              workspaceId: event.active.data.current.item.id,
               index: event.over.data.current.sortable.index,
             })
           );

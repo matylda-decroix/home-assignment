@@ -10,6 +10,8 @@ import { useState } from "react";
 import { useDroppable } from "@dnd-kit/core";
 import { Workspace } from "../../store/types";
 import { WorkspacesForm } from "./WorkspacesForm";
+import { useSortable } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
 
 export const WorkspacesListItem = ({
   workspace,
@@ -20,6 +22,20 @@ export const WorkspacesListItem = ({
 }) => {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const dispatch = useDispatch();
+  const {
+    attributes,
+    listeners,
+    setNodeRef: setNodeRefWorkspace,
+    transform,
+    transition,
+  } = useSortable({
+    id: `workspace-${workspace.id}`,
+    data: { item: { id: workspace.id, title: workspace.title } },
+  });
+  const styleWorkspace = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+  };
   const { isOver, setNodeRef } = useDroppable({
     id: `workspaces-${workspace.id}`,
     data: workspace,
@@ -57,7 +73,10 @@ export const WorkspacesListItem = ({
       onClick={() => {
         handleChange(workspace.id);
       }}
-      ref={setNodeRef}
+      ref={setNodeRefWorkspace}
+      style={styleWorkspace}
+      {...listeners}
+      {...attributes}
     >
       <div
         className={
@@ -65,6 +84,7 @@ export const WorkspacesListItem = ({
             ? "chosen-workspace-label"
             : "not-chosen-workspace-label"
         }
+        ref={setNodeRef}
       >
         <div className="workspace-icon">{workspace.title[0]}</div>
         <span className="workspace-span" style={style}>

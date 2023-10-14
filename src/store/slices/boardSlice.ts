@@ -208,6 +208,23 @@ export const boardSlice = createSlice({
       group.taskIds.splice(currentPosition, 1);
       group.taskIds.splice(action.payload.index, 0, action.payload.taskId);
     },
+    moveWorkspaceWithinWorkspaces: (
+      state,
+      action: PayloadAction<{
+        workspaceId: number;
+        index: number;
+      }>
+    ) => {
+      const workspace = state.workspaces.find(
+        (workspace) => workspace.id === action.payload.workspaceId
+      );
+      if (!workspace) return;
+      const currentPosition = state.workspaces.findIndex((workspace) => {
+        return workspace.id === action.payload.workspaceId;
+      });
+      state.workspaces.splice(currentPosition, 1);
+      state.workspaces.splice(action.payload.index, 0, workspace);
+    },
   },
 });
 
@@ -226,4 +243,5 @@ export const {
   moveGroupBetweenWorkspaces,
   moveTaskGroupWithinWorkspace,
   moveTaskWithinGroup,
+  moveWorkspaceWithinWorkspaces,
 } = boardSlice.actions;

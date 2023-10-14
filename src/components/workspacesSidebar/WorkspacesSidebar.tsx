@@ -12,6 +12,7 @@ import { addWorkspace } from "../../store/slices";
 import { useState } from "react";
 import { WorkspacesListItem } from "./WorkspacesListItem";
 import { WorkspacesForm } from "./WorkspacesForm";
+import { SortableContext } from "@dnd-kit/sortable";
 
 export const WorkspacesSidebar = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -34,22 +35,24 @@ export const WorkspacesSidebar = () => {
   return (
     <div className="workspaces">
       <div className="workspaces-header">
-        <div
-          className="workspaces-header-container"
-          // ref={setNodeRef}
-          // style={style}
+        <SortableContext
+          items={
+            workspaces?.map((workspace) => `workspace-${workspace.id}`) ?? []
+          }
         >
-          {workspaces.map((workspace) => {
-            const isThisWorkspaceChosen = workspace.id === chosenWorkspace;
-            return (
-              <WorkspacesListItem
-                isThisWorkspaceChosen={isThisWorkspaceChosen}
-                workspace={workspace}
-                key={workspace.id}
-              />
-            );
-          })}
-        </div>
+          <div className="workspaces-header-container">
+            {workspaces.map((workspace) => {
+              const isThisWorkspaceChosen = workspace.id === chosenWorkspace;
+              return (
+                <WorkspacesListItem
+                  isThisWorkspaceChosen={isThisWorkspaceChosen}
+                  workspace={workspace}
+                  key={workspace.id}
+                />
+              );
+            })}
+          </div>
+        </SortableContext>
         {isFormOpen ? (
           <WorkspacesForm
             submitLabel="Save new workspace"
