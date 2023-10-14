@@ -2,11 +2,7 @@ import { useState } from "react";
 import { Plus } from "../../assets/icons";
 import { Close } from "../../assets/icons/Close";
 import "./NewList.scss";
-import {
-  addTaskGroup,
-  deleteTaskGroup,
-  editTaskGroup,
-} from "../../store/slices";
+import { addTaskGroup } from "../../store/slices";
 import { useDispatch } from "react-redux";
 
 export const NewList = () => {
