@@ -7,12 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 import { Close } from "../../assets/icons/Close";
 import { useState } from "react";
-import {
-  addTask,
-  deleteTask,
-  deleteTaskGroup,
-  editTask,
-} from "../../store/slices";
+import { addTask, deleteTaskGroup, editTask } from "../../store/slices";
 
 export const TaskGroup = ({ group }: { group: Group }) => {
   const [isFormOpen, setIsFormOpen] = useState(false);
