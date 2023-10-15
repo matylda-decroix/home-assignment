@@ -1,5 +1,5 @@
 .edit-group-form-container {
-  margin-top: 0px;
+  margin-top: 0;
   margin-bottom: 8px;
   display: flex;
   padding: 16px;
@@ -9,67 +9,69 @@
   align-self: stretch;
   width: 278px;
   height: 98px;
-
   border-radius: 8px;
   border: 1px solid rgba(0, 125, 252, 0.5);
   background: #f8faff;
   box-shadow:
-    0px 0px 1px 0px rgba(18, 3, 62, 0.11),
-    0px 3px 5px 0px rgba(18, 3, 62, 0.1);
-}
-.new-list-form-header-container {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.new-list-form-header-container input[type="text" i] {
-  -webkit-appearance: none;
-  appearance: none;
+    0 0 1px 0 rgba(18, 3, 62, 0.11),
+    0 3px 5px 0 rgba(18, 3, 62, 0.1);
 
-  margin: 0;
-  border: none;
-  background: none;
-  display: inline-block;
+  .new-list-form-header-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 
-  color: #001c39;
-  font-weight: 400;
-  line-height: 18px;
-}
-.new-list-form-header-container input[type="text" i]::placeholder {
-  color: rgba(0, 28, 57, 0.5);
-}
-.new-list-form-footer-container {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-.new-list-form-footer-button {
-  height: 32px;
-  padding: 0px 12px 0px 10px;
-  justify-content: center;
-  align-items: center;
+    input[type="text" i] {
+      -webkit-appearance: none;
+      appearance: none;
+      margin: 0;
+      border: none;
+      background: none;
+      display: inline-block;
+      color: #001c39;
+      font-weight: 400;
+      line-height: 18px;
 
-  border-radius: 4px;
-  border: 1px solid #007dfc;
-  background: #007dfc;
-  box-shadow:
-    0px 0px 0px 0px rgba(18, 3, 62, 0.1),
-    0px 0px 1px 0px rgba(18, 3, 62, 0.1),
-    0px 1px 1px 0px rgba(18, 3, 62, 0.09),
-    0px 3px 2px 0px rgba(18, 3, 62, 0.05),
-    0px 5px 2px 0px rgba(18, 3, 62, 0.01),
-    0px 8px 2px 0px rgba(18, 3, 62, 0);
+      &::placeholder {
+        color: rgba(0, 28, 57, 0.5);
+      }
+    }
+  }
 
-  color: #fff;
-  font-weight: 600;
-  line-height: 20px;
-}
-.new-list-close-button {
-  border: none;
-  background-color: transparent;
-  outline: none;
-  width: 16px;
-  height: 16px;
-  padding: 0;
-  margin: 0;
+  .new-list-form-footer-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    .new-list-form-footer-button {
+      height: 32px;
+      padding: 0 12px 0 10px;
+      justify-content: center;
+      align-items: center;
+      border-radius: 4px;
+      border: 1px solid #007dfc;
+      background: #007dfc;
+      box-shadow:
+        0 0 0 0 rgba(18, 3, 62, 0.1),
+        0 0 1px 0 rgba(18, 3, 62, 0.1),
+        0 1px 1px 0 rgba(18, 3, 62, 0.09),
+        0 3px 2px 0 rgba(18, 3, 62, 0.05),
+        0 5px 2px 0 rgba(18, 3, 62, 0.01),
+        0 8px 2px 0 rgba(18, 3, 62, 0);
+
+      color: #fff;
+      font-weight: 600;
+      line-height: 20px;
+    }
+  }
+
+  .new-list-close-button {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    margin: 0;
+  }
 }
