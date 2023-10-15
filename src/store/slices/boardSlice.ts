@@ -4,14 +4,14 @@ import { BoardInterface } from "../types";
 const initialState: BoardInterface = {
   groups: [
     { id: 1, title: "To do", taskIds: [1, 2, 3] },
-    { id: 2, title: "To do second", taskIds: [4, 5, 6] },
-    { id: 3, title: "To do second", taskIds: [7, 8] },
+    { id: 2, title: "Second to do", taskIds: [4, 5, 6] },
+    { id: 3, title: "To do third", taskIds: [7, 8] },
   ],
   tasks: {
     1: { id: 1, isDone: false, title: "First" },
     2: { id: 2, isDone: false, title: "Second" },
     3: { id: 3, isDone: false, title: "Third" },
-    4: { id: 4, isDone: false, title: "Fourth", subtaskIds: [1, 2, 3] },
+    4: { id: 4, isDone: false, title: "Fourth" },
     5: { id: 5, isDone: false, title: "Fifth" },
     6: { id: 6, isDone: false, title: "Sixth" },
     7: { id: 7, isDone: false, title: "Seventh" },
