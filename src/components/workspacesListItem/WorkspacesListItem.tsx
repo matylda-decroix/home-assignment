@@ -1,4 +1,3 @@
-import "./WorkspacesListItem.scss";
 import { useDispatch } from "react-redux";
 import {
   chooseWorkspace,
@@ -12,6 +11,7 @@ import { Workspace } from "../../store/types";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { WorkspacesForm } from "../workspacesSidebarForm";
+import "./WorkspacesListItem.scss";
 
 export const WorkspacesListItem = ({
   workspace,

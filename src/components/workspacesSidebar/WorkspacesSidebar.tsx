@@ -1,4 +1,3 @@
-import "./WorkspacesSidebar.scss";
 import { UserProfile } from "../userProfile";
 import { WorkspaceSettings } from "../workspaceSettings";
 import { Plus } from "../../assets/icons";
@@ -13,6 +12,7 @@ import { useState } from "react";
 import { SortableContext } from "@dnd-kit/sortable";
 import { WorkspacesForm } from "../workspacesSidebarForm";
 import { WorkspacesListItem } from "../workspacesListItem";
+import "./WorkspacesSidebar.scss";
 
 export const WorkspacesSidebar = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);

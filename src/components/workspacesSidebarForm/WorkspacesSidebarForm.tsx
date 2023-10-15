@@ -1,7 +1,7 @@
-import "./WorkspacesSidebarForm.scss";
 import { FormEventHandler, useState } from "react";
 import { Save } from "../../assets/icons/Save";
 import { Close } from "../../assets/icons/Close";
+import "./WorkspacesSidebarForm.scss";
 
 type Props = {
   submitLabel: string;
