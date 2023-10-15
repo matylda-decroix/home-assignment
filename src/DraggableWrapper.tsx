@@ -24,7 +24,6 @@ export const DraggableWrapper = ({ children }: PropsWithChildren) => {
   const workspaceId = useSelector(selectChosenWorkspaceId);
   const dispatch = useDispatch();
   function handleDragStart(event: any) {
-    console.log(event);
     dispatch(
       dragStart({
         id: event.active?.data?.current?.item.id,
@@ -33,7 +32,6 @@ export const DraggableWrapper = ({ children }: PropsWithChildren) => {
     );
   }
   function handleDragEnd(event: any) {
-    console.log(event);
     dispatch(dragEnd());
     if (
       event.over?.id.startsWith("workspace") &&

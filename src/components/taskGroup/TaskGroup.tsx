@@ -1,4 +1,3 @@
-import "./TaskGroup.scss";
 import { Group } from "../../store/types";
 import { Task } from "../task";
 import { Plus } from "../../assets/icons";
@@ -8,6 +7,7 @@ import { addTask } from "../../store/slices";
 import { TaskForm } from "../taskForm";
 import { SortableContext, useSortable } from "@dnd-kit/sortable";
 import { TaskGroupHeader } from "../taskGroupHeader";
+import "./TaskGroup.scss";
 
 export const TaskGroup = ({ group }: { group: Group }) => {
   const [isFormOpen, setIsFormOpen] = useState(false);

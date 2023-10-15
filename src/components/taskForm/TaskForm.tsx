@@ -1,6 +1,6 @@
-import "./TaskForm.scss";
 import { Close } from "../../assets/icons/Close";
 import { FormEventHandler, useState } from "react";
+import "./TaskForm.scss";
 
 type Props = {
   submitLabel: string;

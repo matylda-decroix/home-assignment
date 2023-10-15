@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from "react-redux";
-import "./Task.scss";
 import { RootState } from "../../store/store";
 import { deleteTask, editTask, toggleTask } from "../../store/slices";
 import { Check } from "../../assets/icons/Check";
@@ -8,6 +7,7 @@ import { useState } from "react";
 import { TaskForm } from "../taskForm";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
+import "./Task.scss";
 
 export const Task = ({ groupId, id }: { groupId: number; id: number }) => {
   const [isFormOpen, setIsFormOpen] = useState(false);
