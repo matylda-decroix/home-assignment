@@ -5,6 +5,7 @@ import { HoverButtons } from "../hoverButtons";
 import { useState } from "react";
 import { deleteTaskGroup, editTaskGroup } from "../../store/slices";
 import { TaskGroupForm } from "../taskGroupForm";
+import "./TaskGroupHeader.scss";
 
 export const TaskGroupHeader = ({ group }: { group: Group }) => {
   const [isFormOpen, setIsFormOpen] = useState(false);

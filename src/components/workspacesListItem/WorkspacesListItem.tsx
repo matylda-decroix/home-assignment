@@ -1,4 +1,4 @@
-import "./WorkspacesSidebar.scss";
+import "./WorkspacesListItem.scss";
 import { useDispatch } from "react-redux";
 import {
   chooseWorkspace,
@@ -9,9 +9,9 @@ import { HoverButtons } from "../hoverButtons";
 import { useState } from "react";
 import { useDroppable } from "@dnd-kit/core";
 import { Workspace } from "../../store/types";
-import { WorkspacesForm } from "./WorkspacesForm";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
+import { WorkspacesForm } from "../workspacesSidebarForm";
 
 export const WorkspacesListItem = ({
   workspace,

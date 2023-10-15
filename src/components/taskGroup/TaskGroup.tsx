@@ -6,8 +6,8 @@ import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { addTask } from "../../store/slices";
 import { TaskForm } from "../taskForm";
-import { TaskGroupHeader } from "./TaskGroupHeader";
 import { SortableContext, useSortable } from "@dnd-kit/sortable";
+import { TaskGroupHeader } from "../taskGroupHeader";
 
 export const TaskGroup = ({ group }: { group: Group }) => {
   const [isFormOpen, setIsFormOpen] = useState(false);

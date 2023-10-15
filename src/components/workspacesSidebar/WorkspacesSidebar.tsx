@@ -10,9 +10,9 @@ import { Dashboard } from "../../assets/icons/Dashboard";
 import { Profile } from "../../assets/icons/Profile";
 import { addWorkspace } from "../../store/slices";
 import { useState } from "react";
-import { WorkspacesListItem } from "./WorkspacesListItem";
-import { WorkspacesForm } from "./WorkspacesForm";
 import { SortableContext } from "@dnd-kit/sortable";
+import { WorkspacesForm } from "../workspacesSidebarForm";
+import { WorkspacesListItem } from "../workspacesListItem";
 
 export const WorkspacesSidebar = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);

@@ -1,4 +1,4 @@
-import "./WorkspacesSidebar.scss";
+import "./WorkspacesSidebarForm.scss";
 import { FormEventHandler, useState } from "react";
 import { Save } from "../../assets/icons/Save";
 import { Close } from "../../assets/icons/Close";
