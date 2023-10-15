@@ -1,70 +1,4 @@
-.task-group-container {
-    background-color: #ecf1fd;
-    border-radius: 16px;
-    padding: 16px 8px 8px 8px;
-    width: 294px;
-}
-.task-group-buttons-container {
-    display: none;
-}
-.task-group-header:hover .task-group-buttons-container {
-    display: initial;
-}
-.task-group-header {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 16px;
-}
-.task-group-title {
-    color: #001c39;
-    font-weight: 600;
-    line-height: 18px;
-    padding-left: 8px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-.task-group-counter {
-    color: #88819f;
-    font-weight: 400;
-    line-height: 18px;
-}
-.task-group-header:hover .task-group-counter {
-    display: none;
-}
-.task-group-list {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-}
-.task-group-button-container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    margin-top: 8px;
-}
-.task-group-button {
-    border: none;
-    background-color: transparent;
-    outline: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: opacity 0.3s ease-in-out;
-    gap: 6px;
-    height: 32px;
-    padding: 8px 12px 8px 10px;
-}
-.task-group-button-text {
-    color: #88819f;
-    font-weight: 600;
-    line-height: 20px;
-}
-.form-container {
+.task-form-container {
     margin-top: 8px;
     display: flex;
     padding: 16px;
@@ -80,12 +14,12 @@
         0px 0px 1px 0px rgba(18, 3, 62, 0.11),
         0px 3px 5px 0px rgba(18, 3, 62, 0.1);
 }
-.form-header-container {
+.task-form-header-container {
     display: flex;
     align-items: center;
     gap: 8px;
 }
-.form-header-container input[type="checkbox" i] {
+.task-form-header-container input[type="checkbox" i] {
     -webkit-appearance: none;
     appearance: none;
 
@@ -97,7 +31,7 @@
     background: #fff;
     display: inline-block;
 }
-.form-header-container input[type="text" i] {
+.task-form-header-container input[type="text" i] {
     -webkit-appearance: none;
     appearance: none;
 
@@ -110,15 +44,15 @@
     font-weight: 400;
     line-height: 18px;
 }
-.form-header-container input[type="text" i]::placeholder {
+.task-form-header-container input[type="text" i]::placeholder {
     color: rgba(0, 28, 57, 0.5);
 }
-.form-footer-container {
+.task-form-footer-container {
     display: flex;
     align-items: center;
     gap: 16px;
 }
-.form-footer-button {
+.task-form-footer-button {
     height: 32px;
     padding: 0px 12px 0px 10px;
     justify-content: center;
@@ -135,12 +69,12 @@
         0px 5px 2px 0px rgba(18, 3, 62, 0.01),
         0px 8px 2px 0px rgba(18, 3, 62, 0);
 }
-.new-card-form-footer-button-text {
+.task-form-footer-button-text {
     color: #fff;
     font-weight: 600;
     line-height: 20px;
 }
-.close-button {
+.task-close-button {
     border: none;
     background-color: transparent;
     outline: none;

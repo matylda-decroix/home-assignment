@@ -23,8 +23,8 @@ export const TaskForm = ({
   };
 
   return (
-    <form className="form-container" onSubmit={handleSubmit}>
-      <div className="form-header-container">
+    <form className="task-form-container" onSubmit={handleSubmit}>
+      <div className="task-form-header-container">
         <input className="form-task-checkbox" type="checkbox" readOnly />
         <input
           className="form-task-checkbox"
@@ -36,11 +36,11 @@ export const TaskForm = ({
           }}
         />
       </div>
-      <div className="form-footer-container">
-        <button className="form-footer-button" type="submit">
-          <p className="new-card-form-footer-button-text">{submitLabel}</p>
+      <div className="task-form-footer-container">
+        <button className="task-form-footer-button" type="submit">
+          <p className="task-form-footer-button-text">{submitLabel}</p>
         </button>
-        <button className="close-button" onClick={onCancel} type="button">
+        <button className="task-close-button" onClick={onCancel} type="button">
           <Close />
         </button>
       </div>
