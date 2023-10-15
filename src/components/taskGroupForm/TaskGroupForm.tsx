@@ -23,7 +23,7 @@ export const TaskGroupForm = ({
   };
 
   return (
-    <form className="new-list-form-container" onSubmit={handleSubmit}>
+    <form className="edit-group-form-container" onSubmit={handleSubmit}>
       <div className="new-list-form-header-container">
         <input
           className="new-list-form-task-checkbox"

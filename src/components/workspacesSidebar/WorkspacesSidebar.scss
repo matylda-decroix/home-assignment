@@ -164,9 +164,8 @@
 }
 .new-workspace-form-footer-button {
     display: flex;
-    width: 278px;
+    width: 250px;
     height: 32px;
-    margin-top: 8px;
     padding: 8px 12px 8px 10px;
     justify-content: center;
     align-items: center;
@@ -192,6 +191,19 @@
     font-style: normal;
     font-weight: 600;
     line-height: 20px;
+}
+.workspaces-form-button-container {
+    margin-top: 8px;
+    display: flex;
+    width: 278px;
+}
+.new-workspace-close-button {
+    margin-top: 8px;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    width: 16px;
+    height: 16px;
 }
 .new-worspace-button-text {
     color: #001c39;

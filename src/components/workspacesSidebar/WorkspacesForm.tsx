@@ -1,24 +1,6 @@
 import "./WorkspacesSidebar.scss";
-import { UserProfile } from "../userProfile";
-import { WorkspaceSettings } from "../workspaceSettings";
-import { Plus } from "../../assets/icons";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../store/store";
-import { Search } from "../../assets/icons/Search";
-import { Boards } from "../../assets/icons/Boards";
-import { Dashboard } from "../../assets/icons/Dashboard";
-import { Profile } from "../../assets/icons/Profile";
-import {
-  addWorkspace,
-  chooseWorkspace,
-  deleteWorkspace,
-  editWorkspace,
-} from "../../store/slices";
-import { HoverButtons } from "../hoverButtons";
 import { FormEventHandler, useState } from "react";
 import { Save } from "../../assets/icons/Save";
-import { useDroppable } from "@dnd-kit/core";
-import { WorkspacesListItem } from "./WorkspacesListItem";
 import { Close } from "../../assets/icons/Close";
 
 type Props = {
@@ -55,19 +37,21 @@ export const WorkspacesForm = ({
           }}
         />
       </div>
-      <button className="new-workspace-form-footer-button" type="submit">
-        <Save />
-        <span className="new-workspace-form-footer-button-text">
-          {submitLabel}
-        </span>
-      </button>
-      <button
-        className="new-list-close-button"
-        type="button"
-        onClick={onCancel}
-      >
-        <Close />
-      </button>
+      <div className="workspaces-form-button-container">
+        <button className="new-workspace-form-footer-button" type="submit">
+          <Save />
+          <span className="new-workspace-form-footer-button-text">
+            {submitLabel}
+          </span>
+        </button>
+        <button
+          className="new-workspace-close-button"
+          type="button"
+          onClick={onCancel}
+        >
+          <Close />
+        </button>
+      </div>
     </form>
   );
 };
