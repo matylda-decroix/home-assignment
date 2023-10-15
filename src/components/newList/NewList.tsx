@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Plus } from "../../assets/icons";
-import "./NewList.scss";
 import { addTaskGroup } from "../../store/slices";
 import { useDispatch } from "react-redux";
 import { TaskGroupForm } from "../taskGroupForm";
+import "./NewList.scss";
 
 export const NewList = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
